@@ -2,8 +2,8 @@ package compare_test
 
 import (
 	"fmt"
+	"github.com/nodejayes/go-tools/compare"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/morgenstern87/go-tools/compare"
 	"testing"
 )
 

@@ -2,8 +2,8 @@ package list_test
 
 import (
 	"fmt"
+	"github.com/nodejayes/go-tools/list"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/morgenstern87/go-tools/list"
 	"testing"
 )
 
