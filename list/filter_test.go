@@ -16,16 +16,12 @@ func TestFilter(t *testing.T) {
 
 func ExampleList_Filter() {
 	myList := list.New([]int{1, 2, 3})
-	fmt.Println(myList.Filter(func(item int, _ int, _ []int) bool {
-		return item != 2
-	}))
+	fmt.Println(myList.Filter(compare.FilterNotEquals(2)))
 	// Output: [1 3]
 }
 
 func BenchmarkFilter(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		list.New([]int{1, 2, 3}).Filter(func(item int, _ int, _ []int) bool {
-			return item != 2
-		})
+		list.New([]int{1, 2, 3}).Filter(compare.FilterNotEquals(2))
 	}
 }
