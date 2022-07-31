@@ -1,4 +1,4 @@
-module gitlab.com/morgenstern87/go-tools
+module github.com/nodejayes/go-tools
 
 go 1.18
 
