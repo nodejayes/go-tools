@@ -3,6 +3,7 @@ package compare_test
 import (
 	"fmt"
 	"github.com/nodejayes/go-tools/compare"
+	"github.com/nodejayes/go-tools/list"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -26,6 +27,34 @@ func TestEquals(t *testing.T) {
 	t.Run("string", func(t *testing.T) {
 		assert.True(t, compare.Equals("abc", "abc"))
 		assert.False(t, compare.Equals("abc", "abcd"))
+	})
+}
+
+func TestFilterEquals(t *testing.T) {
+	t.Run("element at index 0 equals 1 in [1 2 3]", func(t *testing.T) {
+		myList := list.New([]int{1, 2, 3})
+		el, _ := myList.ElementAt(0)
+		assert.True(t, compare.FilterEquals(1)(el, 0, myList))
+	})
+
+	t.Run("element at index 1 not equals 1 in [1 2 3]", func(t *testing.T) {
+		myList := list.New([]int{1, 2, 3})
+		el, _ := myList.ElementAt(1)
+		assert.False(t, compare.FilterEquals(1)(el, 1, myList))
+	})
+}
+
+func TestFilterNotEquals(t *testing.T) {
+	t.Run("element at index 1 not equals 1 in [1 2 3]", func(t *testing.T) {
+		myList := list.New([]int{1, 2, 3})
+		el, _ := myList.ElementAt(1)
+		assert.True(t, compare.FilterNotEquals(1)(el, 1, myList))
+	})
+
+	t.Run("element at index 0 equals 1 in [1 2 3]", func(t *testing.T) {
+		myList := list.New([]int{1, 2, 3})
+		el, _ := myList.ElementAt(0)
+		assert.False(t, compare.FilterNotEquals(1)(el, 0, myList))
 	})
 }
 
