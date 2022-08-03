@@ -20,3 +20,8 @@ func FilterNotEquals[T any](item T) func(T, int, list.List[T]) bool {
 		return !Equals(t, item)
 	}
 }
+
+// FilterTrue everytime returns true
+func FilterTrue[T any]() func(T, T, list.List[T]) bool {
+	return func(_ T, _ T, _ list.List[T]) bool { return true }
+}

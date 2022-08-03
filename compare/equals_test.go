@@ -58,6 +58,13 @@ func TestFilterNotEquals(t *testing.T) {
 	})
 }
 
+func TestFilterTrue(t *testing.T) {
+	myList := list.New([]int{1, 2, 3})
+	t.Run("returns true", func(t *testing.T) {
+		assert.True(t, compare.FilterTrue[int]()(1, 1, myList))
+	})
+}
+
 func ExampleEquals() {
 	fmt.Println(compare.Equals(1, 2))
 	// Output false
