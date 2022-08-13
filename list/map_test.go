@@ -20,7 +20,7 @@ func TestMap(t *testing.T) {
 		res := list.Map(myList, func(item int, _ int, _ list.List[int]) string {
 			return fmt.Sprintf("%v", item)
 		})
-		assert.Equal(t, []string{"1", "2", "3"}, res)
+		assert.Equal(t, []string{"1", "2", "3"}, res.GetItems())
 	})
 
 	t.Run("float64 to string", func(t *testing.T) {
@@ -28,7 +28,7 @@ func TestMap(t *testing.T) {
 		res := list.Map(myList, func(item float64, _ int, _ list.List[float64]) string {
 			return fmt.Sprintf("%0.2f", item)
 		})
-		assert.Equal(t, []string{"2.55", "1.00", "5.20"}, res)
+		assert.Equal(t, []string{"2.55", "1.00", "5.20"}, res.GetItems())
 	})
 
 	t.Run("struct to string", func(t *testing.T) {
@@ -41,13 +41,13 @@ func TestMap(t *testing.T) {
 		res := list.Map(myList, func(item testUser, _ int, _ list.List[testUser]) string {
 			return fmt.Sprintf("%v (%v)", item.Name, item.Age)
 		})
-		assert.Equal(t, []string{"Tom (15)", "Martina (26)", "Paul (50)", "Gerta (80)"}, res)
+		assert.Equal(t, []string{"Tom (15)", "Martina (26)", "Paul (50)", "Gerta (80)"}, res.GetItems())
 	})
 
 	t.Run("empty array returns empty array", func(t *testing.T) {
 		myList := list.New([]int{})
 		res := list.Map(myList, func(item int, _ int, _ list.List[int]) string { return fmt.Sprintf("%v", item) })
-		assert.Equal(t, []string{}, res)
+		assert.Equal(t, []string{}, res.GetItems())
 	})
 }
 
@@ -55,7 +55,7 @@ func ExampleMap() {
 	myList := list.New([]int{1, 2, 3})
 	fmt.Println(list.Map(myList, func(item int, _ int, _ list.List[int]) string {
 		return fmt.Sprintf("%v", item)
-	}))
+	}).GetItems())
 	// Output: [1 2 3]
 }
 
