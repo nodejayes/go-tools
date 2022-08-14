@@ -5,7 +5,6 @@ type (
 	List[T any] struct {
 		innerList []T
 	}
-	IList[T any] interface{}
 )
 
 // New creates a new Instance of a List
