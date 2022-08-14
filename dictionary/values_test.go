@@ -14,7 +14,11 @@ func TestDictionary_Values(t *testing.T) {
 			"b": 2,
 			"c": 3,
 		})
-		assert.Equal(t, []int{1, 2, 3}, myDic.Values().GetItems())
+		values := myDic.Values()
+		values.Sort(func(v1, v2 int) bool {
+			return v1 < v2
+		})
+		assert.Equal(t, []int{1, 2, 3}, values.GetItems())
 	})
 }
 

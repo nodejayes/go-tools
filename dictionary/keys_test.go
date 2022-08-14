@@ -14,7 +14,11 @@ func TestDictionary_Keys(t *testing.T) {
 			"b": 2,
 			"c": 3,
 		})
-		assert.Equal(t, []string{"a", "b", "c"}, myDic.Keys().GetItems())
+		keys := myDic.Keys()
+		keys.Sort(func(k1, k2 string) bool {
+			return k1 < k2
+		})
+		assert.Equal(t, []string{"a", "b", "c"}, keys.GetItems())
 	})
 }
 
