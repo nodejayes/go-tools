@@ -24,6 +24,10 @@ func ExampleDictionary_Keys() {
 		"b": 2,
 		"c": 3,
 	})
-	fmt.Println(myDic.Keys().GetItems())
+	keys := myDic.Keys()
+	keys.Sort(func(k1, k2 string) bool {
+		return k1 < k2
+	})
+	fmt.Println(keys.GetItems())
 	// Output: [a b c]
 }

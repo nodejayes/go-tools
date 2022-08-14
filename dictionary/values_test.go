@@ -24,6 +24,10 @@ func ExampleDictionary_Values() {
 		"b": 2,
 		"c": 3,
 	})
-	fmt.Println(myDic.Values().GetItems())
+	values := myDic.Values()
+	values.Sort(func(v1, v2 int) bool {
+		return v1 < v2
+	})
+	fmt.Println(values.GetItems())
 	// Output: [1 2 3]
 }
