@@ -1,4 +1,4 @@
-module github.com/nodejayes/go-tools
+module github.com/nodejayes/go-tools/v2
 
 go 1.18
 
