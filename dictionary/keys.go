@@ -1,6 +1,6 @@
 package dictionary
 
-import "github.com/nodejayes/go-tools/list"
+import "github.com/nodejayes/go-tools/v2/list"
 
 // Keys returns the Keys of the Dictionary
 func (d Dictionary[T, K]) Keys() list.List[T] {

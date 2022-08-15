@@ -1,6 +1,6 @@
 package compare
 
-import "github.com/nodejayes/go-tools/list"
+import "github.com/nodejayes/go-tools/v2/list"
 
 // Equals check if the given item1 == item2
 func Equals[T any](item1, item2 T) bool {

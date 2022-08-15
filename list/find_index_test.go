@@ -2,8 +2,8 @@ package list_test
 
 import (
 	"fmt"
-	"github.com/nodejayes/go-tools/compare"
-	"github.com/nodejayes/go-tools/list"
+	"github.com/nodejayes/go-tools/v2/compare"
+	"github.com/nodejayes/go-tools/v2/list"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
