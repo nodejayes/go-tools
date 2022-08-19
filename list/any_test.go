@@ -2,8 +2,8 @@ package list_test
 
 import (
 	"fmt"
-	"github.com/nodejayes/go-tools/v2/compare"
-	"github.com/nodejayes/go-tools/v2/list"
+	"github.com/nodejayes/go-tools/v3/compare"
+	"github.com/nodejayes/go-tools/v3/list"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -18,12 +18,12 @@ func TestList_Any(t *testing.T) {
 		assert.False(t, myEmptyList.Any())
 	})
 	t.Run("[1 2 3] has any 2", func(t *testing.T) {
-		assert.True(t, myList.Any(func(item int, _ int, _ list.List[int]) bool {
+		assert.True(t, myList.Any(func(item int, _ int, _ *list.List[int]) bool {
 			return item == 2
 		}))
 	})
 	t.Run("[1 2 3] has not any 5", func(t *testing.T) {
-		assert.False(t, myList.Any(func(item int, _ int, _ list.List[int]) bool {
+		assert.False(t, myList.Any(func(item int, _ int, _ *list.List[int]) bool {
 			return item == 5
 		}))
 	})

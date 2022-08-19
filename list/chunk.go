@@ -1,8 +1,8 @@
 package list
 
 // Chunk split the List into smaller Lists
-func (l List[T]) Chunk(chunkSize int) []List[T] {
-	var res []List[T]
+func (l *List[T]) Chunk(chunkSize int) []*List[T] {
+	var res []*List[T]
 	if chunkSize < 1 {
 		res = append(res, l)
 		return res

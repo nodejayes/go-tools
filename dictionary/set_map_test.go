@@ -2,7 +2,7 @@ package dictionary_test
 
 import (
 	"fmt"
-	"github.com/nodejayes/go-tools/v2/dictionary"
+	"github.com/nodejayes/go-tools/v3/dictionary"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

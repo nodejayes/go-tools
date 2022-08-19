@@ -1,7 +1,7 @@
 package list
 
 // Map converts a List of Items into a other List of other Items
-func Map[T, K any](items List[T], transform func(T, int, List[T]) K) List[K] {
+func Map[T, K any](items *List[T], transform func(T, int, *List[T]) K) *List[K] {
 	result := New(make([]K, len(items.innerList)))
 
 	for idx, item := range items.innerList {

@@ -6,7 +6,7 @@ func (l *List[T]) Pull(idx int) T {
 		return *new(T)
 	}
 	item := l.innerList[idx]
-	l.Remove(func(_ T, index int, _ List[T]) bool {
+	l.Remove(func(_ T, index int, _ *List[T]) bool {
 		return index == idx
 	})
 	return item

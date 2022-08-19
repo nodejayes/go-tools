@@ -2,7 +2,7 @@ package list_test
 
 import (
 	"fmt"
-	"github.com/nodejayes/go-tools/v2/list"
+	"github.com/nodejayes/go-tools/v3/list"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -34,7 +34,7 @@ func TestList_Add(t *testing.T) {
 		myList.AddIfNotExists(testUser{
 			Name: "Mina",
 			Age:  18,
-		}, func(item testUser, _ int, _ list.List[testUser]) bool {
+		}, func(item testUser, _ int, _ *list.List[testUser]) bool {
 			return item.Name == "Mina"
 		})
 		assert.Equal(t, []testUser{{
@@ -59,7 +59,7 @@ func TestList_Add(t *testing.T) {
 		myList.AddIfNotExists(testUser{
 			Name: "Mina",
 			Age:  18,
-		}, func(item testUser, _ int, _ list.List[testUser]) bool {
+		}, func(item testUser, _ int, _ *list.List[testUser]) bool {
 			return item.Age == 18
 		})
 		assert.Equal(t, []testUser{{

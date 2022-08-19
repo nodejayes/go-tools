@@ -1,7 +1,7 @@
 package async_test
 
 import (
-	"github.com/nodejayes/go-tools/v2/async"
+	"github.com/nodejayes/go-tools/v3/async"
 	"github.com/stretchr/testify/assert"
 	"runtime"
 	"testing"

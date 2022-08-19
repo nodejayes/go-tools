@@ -1,7 +1,7 @@
 package list
 
 // Head get items from the List with the given length from the begin
-func (l List[T]) Head(length int) List[T] {
+func (l *List[T]) Head(length int) *List[T] {
 	var res List[T]
 	if length < 0 {
 		length = 0
@@ -10,5 +10,5 @@ func (l List[T]) Head(length int) List[T] {
 		return l.Copy()
 	}
 	res.innerList = l.innerList[:length]
-	return res
+	return &res
 }

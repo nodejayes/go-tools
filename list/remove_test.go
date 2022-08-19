@@ -2,8 +2,8 @@ package list_test
 
 import (
 	"fmt"
-	"github.com/nodejayes/go-tools/v2/compare"
-	"github.com/nodejayes/go-tools/v2/list"
+	"github.com/nodejayes/go-tools/v3/compare"
+	"github.com/nodejayes/go-tools/v3/list"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -27,7 +27,7 @@ func TestList_Remove(t *testing.T) {
 			Name: "Mina",
 			Age:  18,
 		}})
-		myList.Remove(func(item testUser, _ int, _ list.List[testUser]) bool {
+		myList.Remove(func(item testUser, _ int, _ *list.List[testUser]) bool {
 			return item.Age > 15
 		})
 		assert.Equal(t, []testUser{{

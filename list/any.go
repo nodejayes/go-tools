@@ -1,7 +1,7 @@
 package list
 
 // Any checks the List for the first match of a Item
-func (l List[T]) Any(predicate ...func(item T, idx int, arr List[T]) bool) bool {
+func (l *List[T]) Any(predicate ...func(item T, idx int, arr *List[T]) bool) bool {
 	if len(predicate) < 1 {
 		return len(l.innerList) > 1
 	}
