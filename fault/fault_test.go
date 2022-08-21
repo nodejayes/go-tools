@@ -32,6 +32,14 @@ func TestNew(t *testing.T) {
 		assert.False(t, err.OneOf(fault.Error, fault.Warning, fault.Info))
 		assert.Equal(t, "Test", err.Error())
 	})
+	t.Run("implement Stringer interface", func(t *testing.T) {
+		err := fault.NewDebug("Test")
+		assert.Equal(t, "Test", err.String())
+	})
+	t.Run("false by unknown type", func(t *testing.T) {
+		err := fault.NewDebug("Test")
+		assert.False(t, err.Is(9999))
+	})
 }
 
 func ExampleNewError() {

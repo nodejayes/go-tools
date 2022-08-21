@@ -11,7 +11,7 @@ func TestList_ElementAt(t *testing.T) {
 	t.Run("find a element at index 0 in list [1 2 3]", func(t *testing.T) {
 		myList := list.New([]int{1, 2, 3})
 		element, err := myList.ElementAt(0)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, 1, element)
 	})
 

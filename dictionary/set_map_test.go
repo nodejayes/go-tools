@@ -21,6 +21,15 @@ func TestDictionary_SetMap(t *testing.T) {
 			"d": 4,
 		}, myDic.GetMap())
 	})
+	t.Run("set new map instance when data is nil", func(t *testing.T) {
+		myDic := dictionary.New(map[string]int{
+			"a": 1,
+			"b": 2,
+			"c": 3,
+		})
+		myDic.SetMap(nil)
+		assert.Equal(t, map[string]int{}, myDic.GetMap())
+	})
 }
 
 func ExampleDictionary_SetMap() {

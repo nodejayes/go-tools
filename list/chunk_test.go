@@ -14,15 +14,15 @@ func TestList_Chunk(t *testing.T) {
 		assert.Equal(t, 3, chunked.Count())
 
 		part, err := chunked.ElementAt(0)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{1, 2}, part.GetItems())
 
 		part, err = chunked.ElementAt(1)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{3, 4}, part.GetItems())
 
 		part, err = chunked.ElementAt(2)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{5}, part.GetItems())
 	})
 	t.Run("[1 2 3 4 5] to [[1] [2] [3] [4] [5]]", func(t *testing.T) {
@@ -31,23 +31,23 @@ func TestList_Chunk(t *testing.T) {
 		assert.Equal(t, 5, chunked.Count())
 
 		part, err := chunked.ElementAt(0)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{1}, part.GetItems())
 
 		part, err = chunked.ElementAt(1)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{2}, part.GetItems())
 
 		part, err = chunked.ElementAt(2)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{3}, part.GetItems())
 
 		part, err = chunked.ElementAt(3)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{4}, part.GetItems())
 
 		part, err = chunked.ElementAt(4)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{5}, part.GetItems())
 	})
 	t.Run("[1 2 3 4 5] to [1 2 3 4 5] when chunk size is 0", func(t *testing.T) {
@@ -55,7 +55,7 @@ func TestList_Chunk(t *testing.T) {
 		chunked := list.New(myList.Chunk(0))
 		assert.Equal(t, 1, chunked.Count())
 		part, err := chunked.ElementAt(0)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{1, 2, 3, 4, 5}, part.GetItems())
 	})
 	t.Run("[1 2 3 4 5] to [1 2 3 4 5] when chunk size is -1", func(t *testing.T) {
@@ -63,7 +63,7 @@ func TestList_Chunk(t *testing.T) {
 		chunked := list.New(myList.Chunk(-1))
 		assert.Equal(t, 1, chunked.Count())
 		part, err := chunked.ElementAt(0)
-		assert.NoError(t, err)
+		assert.Nil(t, err)
 		assert.Equal(t, []int{1, 2, 3, 4, 5}, part.GetItems())
 	})
 }

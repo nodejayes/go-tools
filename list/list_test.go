@@ -17,6 +17,9 @@ func TestList(t *testing.T) {
 		myList.SetItems([]int{1, 2})
 		assert.Equal(t, []int{1, 2}, myList.GetItems())
 	})
+	t.Run("implement Stringer interface", func(t *testing.T) {
+		assert.Equal(t, "[1,2,3]", list.New([]int{1, 2, 3}).String())
+	})
 }
 
 func ExampleList_GetItems() {

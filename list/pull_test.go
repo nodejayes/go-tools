@@ -14,6 +14,10 @@ func TestList_Pull(t *testing.T) {
 		assert.Equal(t, 2, val)
 		assert.Equal(t, []int{1, 3}, myList.GetItems())
 	})
+	t.Run("get default when element not in list", func(t *testing.T) {
+		myList := list.New([]int{1, 2, 3})
+		assert.Equal(t, 0, myList.Pull(20))
+	})
 }
 
 func ExampleList_Pull() {

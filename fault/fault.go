@@ -1,19 +1,29 @@
+// Package fault holds the Fault structure and its functionality
 package fault
 
 type (
-	FaultType int
+	// Type of the Fault (Error, Warning, Info or Debug)
+	Type int
 
+	// Fault struct represents an Error, Warning, Info or Debug fault
 	Fault struct {
-		typ     FaultType
+		typ     Type
 		message string
 	}
 )
 
+// Error returns the message string of the Fault
 func (f *Fault) Error() string {
 	return f.message
 }
 
-func (f *Fault) Is(typ FaultType) bool {
+// String returns the Fault message as string
+func (f *Fault) String() string {
+	return f.message
+}
+
+// Is check the Fault for a Type
+func (f *Fault) Is(typ Type) bool {
 	switch typ {
 	case Error:
 		return f.typ == Error
@@ -27,7 +37,8 @@ func (f *Fault) Is(typ FaultType) bool {
 	return false
 }
 
-func (f *Fault) OneOf(typ ...FaultType) bool {
+// OneOf check the Fault for many Type
+func (f *Fault) OneOf(typ ...Type) bool {
 	for _, t := range typ {
 		if f.Is(t) {
 			return true
@@ -37,9 +48,13 @@ func (f *Fault) OneOf(typ ...FaultType) bool {
 }
 
 const (
-	Error FaultType = iota
+	// Error fault Type
+	Error Type = iota
+	// Warning fault Type
 	Warning
+	// Info fault Type
 	Info
+	// Debug fault Type
 	Debug
 )
 

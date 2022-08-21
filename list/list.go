@@ -1,6 +1,8 @@
 // Package list contains helper Functions for Go Slices
 package list
 
+import "fmt"
+
 type (
 	List[T any] struct {
 		innerList []T
@@ -12,6 +14,11 @@ func New[T any](items []T) *List[T] {
 	return &List[T]{
 		innerList: items,
 	}
+}
+
+// String returns the List as comma seperated string
+func (l *List[T]) String() string {
+	return fmt.Sprintf("[%v]", l.Join(","))
 }
 
 // GetItems return a Slice of the current Items in the List
