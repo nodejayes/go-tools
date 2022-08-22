@@ -31,11 +31,11 @@ func (d *Dictionary[T, K]) String() string {
 }
 
 // New create a Dictionary
-func New[T comparable, K any](data map[T]K) Dictionary[T, K] {
+func New[T comparable, K any](data map[T]K) *Dictionary[T, K] {
 	if data == nil {
 		data = make(map[T]K)
 	}
-	return Dictionary[T, K]{
+	return &Dictionary[T, K]{
 		data,
 	}
 }

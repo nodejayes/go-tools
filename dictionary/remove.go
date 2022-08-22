@@ -1,10 +1,16 @@
 package dictionary
 
-import "github.com/nodejayes/go-tools/v3/compare"
-
 // Remove a Value from Dictionary
 func (d *Dictionary[T, K]) Remove(key T) {
-	if !d.Keys().Any(compare.FilterEquals(key)) {
+	found := false
+	for _, k := range d.Keys().GetItems() {
+		if k == key {
+			found = true
+			break
+		}
+	}
+
+	if !found {
 		return
 	}
 	delete(d.data, key)

@@ -27,11 +27,9 @@ func TestNew(t *testing.T) {
 func ExampleNew() {
 	myDic := dictionary.New(map[string]int{
 		"a": 1,
-		"b": 2,
-		"c": 3,
 	})
 	fmt.Println(myDic)
-	// Output: {map[a:1 b:2 c:3]}
+	// Output: {a:1}
 }
 
 func ExampleDictionary_String() {

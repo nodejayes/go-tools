@@ -2,7 +2,6 @@ package dictionary
 
 import (
 	"fmt"
-	"github.com/nodejayes/go-tools/v3/compare"
 	"github.com/nodejayes/go-tools/v3/fault"
 	"github.com/nodejayes/go-tools/v3/list"
 )
@@ -18,7 +17,9 @@ func (d *Dictionary[T, K]) Values() *list.List[K] {
 
 // GetValue returns the Dictionary Value by the given key. if no Entry with the key in the Dictionary a Fault was returned.
 func (d *Dictionary[T, K]) GetValue(key T) (K, *fault.Fault) {
-	if !d.Keys().Any(compare.FilterEquals(key)) {
+	if !d.Keys().Any(func(item T, _ int, _ *list.List[T]) bool {
+		return interface{}(item) == interface{}(key)
+	}) {
 		return *new(K), fault.NewError(fmt.Sprintf("key not found in Dictionary %v", key))
 	}
 	return d.data[key], nil
